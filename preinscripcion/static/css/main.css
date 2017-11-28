@@ -1,0 +1,311 @@
+.login{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 30%;
+  border: 2px solid rgba(14, 0, 40, 0.64);
+  margin: auto;
+  background-color: rgba(115, 115, 115, 0.43);
+  height: 50vh;
+}
+.logo-ico{
+  width: 64px;
+  margin-left: -16px;
+  margin-right: 16px;
+}
+.found{
+  text-align: left;
+  margin-top: 120px;
+}
+#input{
+  width: 300px;
+  height: 40px;
+  display: inline-block;
+
+}
+#a{
+    display: inline-block;
+    background-color: black;
+    color: white;
+    position:absolute;
+    height: 40px;
+    line-height: 40px;
+    text-decoration: none;
+    width: 100px;
+    text-align: center;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+
+    padding-top: 8px;
+    margin-top: 5px;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+.dropdown p{
+  padding: 5px;
+  color: white;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    /*padding: 12px 16px;*/
+    z-index: 1;
+    color: black;
+    text-decoration: none;
+    margin-top: -5px;
+}
+.dropdown-content a{
+  text-decoration:none;
+  float:left;
+  width: 100%;
+  height: 50px;
+  text-align:center;
+  color:rgba(#000000, 0.71);
+  margin-right:100px;
+  padding-top:15px;
+  font-size:30px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-style:italic;
+}
+.dropdown-content a:hover{
+  background-color: black;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+body{
+  font-family: 'Roboto', serif;
+}
+#a-b:hover{
+  background-color: white;
+  text-decoration: none;
+}
+#logo{
+  font-size: 2.5em; top:50%; transform:translate(0,-15%);
+}
+.input2 option{
+  color: white;
+}
+.cuadro{
+  padding: 5%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  position: absolute;
+  background-color: rgba(20, 17, 159, 0.86);
+  font-family: 'Roboto', sans-serif;
+  width: 50%;
+  height: 65vh;
+}
+.form_group input, .login button{
+  width: 50%;
+  margin: 5px auto;
+}
+.form_group input{
+  height: 5vh;
+}
+.navbar{
+  height: 100px;
+  background-color: rgba(0, 255, 247, 0.28);
+}
+.navbar .navbar-brand{
+  font-size: 1.6em;
+  font-family: 'Roboto', sans-serif;
+}
+
+.top-login{
+  margin-bottom: 10vh;
+  width: 100%;
+  height: 10vh;
+  background-color: rgb(27, 18, 161);
+  border-radius: 5px rgb(0, 20, 57);
+}
+
+.top-login h2{
+  text-align: center;
+  color: white;
+  padding-top: 20px;
+  font-size: 3em;
+  font-weight: 200;
+}
+
+.login a{
+  margin-top: 20%;
+  font-size: 2em;
+  text-align: center;
+  display: block;
+  color: white;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300italic);
+
+*{
+margin:auto;
+}
+#logo {
+float:left;
+color:#ecf0f1;
+font-size:55px;
+margin-top:40px;
+margin-left:20px;
+font-family: 'Montserrat', sans-serif;
+}
+#navbar{
+height:100px;
+width:100%;
+border-bottom:10px solid #0154a1;
+background-color:rgba(#000000, 0.75);
+}
+#navbar ul{
+list-style:none;
+}
+#navbar ul li a{
+text-decoration:none;
+float:left;
+padding:20px 10px;
+text-align:center;
+color:#ecf0f1;
+margin-right:100px;
+margin-top:15px;
+font-size:30px;
+font-family: 'Roboto Condensed', sans-serif;
+font-style:italic;
+}
+
+#navbar ul li a:hover{
+color:#ecf0f1;
+text-shadow:0px 2px 1px #16a085;
+}
+#navbar ul li {
+  float:left;
+}
+
+#navbar ul {
+  float: right;
+}
+
+
+@import url(http://fonts.googleapis.com/css?family=Capriola);
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  font-family: Capriola, Helvetica, sans-serif;
+}
+#cssmenu {
+  width: auto;
+  height: 59px;
+  padding-bottom: 4px;
+}
+#cssmenu.align-right {
+  float: right;
+}
+#cssmenu.align-right ul li {
+  float: right;
+  margin-right: 0;
+  margin-left: 4px;
+}
+#cssmenu.align-right ul li:first-child,
+#cssmenu.align-right ul li:first-child > a {
+  border-bottom-right-radius: 3px;
+}
+#cssmenu #bg-one,
+#cssmenu #bg-two,
+#cssmenu #bg-three,
+#cssmenu #bg-four {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+#cssmenu #bg-one {
+  height: 10px;
+  background: #0f71ba;
+}
+#cssmenu #bg-two {
+  height: 59px;
+  z-index: 2;
+  background: url('images/bg.png');
+}
+#cssmenu #bg-three {
+  bottom: 4px;
+  height: 55px;
+  z-index: 3;
+  background: #222222;
+  background: -moz-linear-gradient(top, #555555 0%, #222222 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #555555), color-stop(100%, #222222));
+  background: -webkit-linear-gradient(top, #555555 0%, #222222 100%);
+  background: -o-linear-gradient(top, #555555 0%, #222222 100%);
+  background: -ms-linear-gradient(top, #555555 0%, #222222 100%);
+  background: linear-gradient(to bottom, #555555 0%, #222222 100%);
+}
+#cssmenu #bg-four {
+  bottom: 4px;
+  height: 55px;
+  z-index: 4;
+  background: url('images/bg.png');
+}
+#cssmenu ul {
+  height: 65px;
+background-color: rgb(25, 24, 24);
+}
+#cssmenu ul li {
+  float: right;
+  margin-right: 4px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  z-index: 5;
+}
+#cssmenu ul li a {
+  padding: 24px 30px 20px 30px;
+  margin-bottom: 4px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  color: #eeeeee;
+  font-size: 15px;
+  text-decoration: none;
+}
+#cssmenu ul li:first-child,
+#cssmenu ul li:first-child > a {
+  border-bottom-left-radius: 3px;
+}
+#cssmenu ul li:hover,
+#cssmenu ul li.active {
+  background: #0f71ba;
+  background: -moz-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3fa4f0), color-stop(100%, #0f71ba));
+  background: -webkit-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
+  background: -o-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
+  background: -ms-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
+  background: linear-gradient(to bottom, #3fa4f0 0%, #0f71ba 100%);
+}
+#cssmenu ul li a:hover,
+#cssmenu ul li.active > a {
+  background: url('images/bg.png');
+  color: #ffffff;
+}
+.navdiv{
+  position: absolute;
+  color: white;
+  top:50%;
+  transform: translate(20%,-40%);
+  z-index: 10
+}

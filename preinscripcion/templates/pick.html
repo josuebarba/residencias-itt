@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}Elige tus materias{% endblock %}
+{% block content %}
+{% if not status%}
+  <br>
+  <div class="contentItems">
+  {% for m in object_list %}
+  <div style = "margin-top:5px;"class="semestre">
+    <h1>{{m.semestre}}</h1>
+  </div>
+  <div class="item">
+    <input class="materia" type="checkbox" value='{{m.id_materia}}'>
+    <label for="materia">{{m.nombre}}</label>
+  </div>
+
+
+  <!-- <div class="checkboxFour">
+    <input type ="checkbox" class = "materia" value="{{m.id_materia}}" id="checkboxFourInput">
+    <label for="checkboxFourInput">{{m.nombre}}</label>
+  </div>
+  <br> -->
+  <!-- <p id="label"></p> -->
+
+  {% endfor %}
+  <input id="insert" type="submit" value="Submit" />
+
+  </div>
+
+{% else %}
+
+  <div class="all">
+    <h2>Materias Programadas</h2>
+  {% for m in object_list %}
+
+    <div class="content">
+      <h2 class="nombre">{{m.nombre}}</h2>
+      <div class="semestre">
+        <h1>{{m.semestre}}</h1>
+      </div>
+
+      <div class="content-info">
+        <div class="creditos">
+          <h2>{{m.creditos}}</h2>
+        </div>
+        <div class="teoria">
+          <h2>{{m.horasTeoria}}</h2>
+        </div>
+        <div class="practica">
+          <h2>{{m.horasPractica}}<h2>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  {% endfor %}
+{% endif %}
+{% endblock %}
