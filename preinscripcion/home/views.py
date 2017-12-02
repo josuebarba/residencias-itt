@@ -59,8 +59,8 @@ def login(request):
         else:
             return render(request,"login.html")
 
-    if request.session['no_control']:
-        return redirect('pick_view')
+#     if request.session['no_control']:
+#         return redirect('pick_view')
     else:
         return render(request,"login.html")
 
