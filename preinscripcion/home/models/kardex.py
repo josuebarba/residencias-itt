@@ -5,8 +5,9 @@ from .alumno import Alumno
 
 
 class Kardex(models.Model):
-    no_control = models.ForeignKey(Alumno,on_delete=models.CASCADE)
+    id_kardex = models.AutoField(primary_key=True)
+    alumno = models.ForeignKey(Alumno, on_delete=models.CASCADE)
     avance = models.IntegerField(default=0)
 
     def __str__(self):
-        return '%d - %d' % (self.no_control.no_control, self.avance)
+        return '%d - %d' % (self.alumno.no_control, self.avance)

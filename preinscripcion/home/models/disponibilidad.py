@@ -5,6 +5,7 @@ from .docente import Docente
 
 
 class Disponibilidad(models.Model):
+    id_disponibilidad = models.AutoField(primary_key=True)
     periodo = models.CharField(max_length=250)
     ano = models.IntegerField()
     dia_semana = models.IntegerField()

@@ -13,12 +13,17 @@ from .docente import Docente
 from .materia import Materia
 from .carrera import Carrera
 
-# Modelos Secundarios (Relaciones)
+# Modelos Secundarios - Relaciones (1,*)
 
 from .materiaInfo import MateriaInfo
-from .alumnoMateriaInfo import AlumnoMateriaInfo
 from .avanceMateria import AvanceMateria
 from .kardex import Kardex
 from .disponibilidad import Disponibilidad
 from .perfil import Perfil
-from .docenteMateriaInfo import DocenteMateriaInfo
+
+# Modelos Secundarios - Relaciones (*,*)
+
+from .alumnoMateriaInfo import AlumnoMateriaInfo
+from .docenteMateria import DocenteMateria
+from .materiaCarrera import MateriaCarrera
+from .materiaArea import MateriaArea

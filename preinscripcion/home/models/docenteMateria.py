@@ -5,8 +5,7 @@ from .docente import Docente
 from .materia import Materia
 
 
-class DocenteMateriaInfo(models.Model):
-    id_info = models.AutoField(primary_key=250)
+class DocenteMateria(models.Model):
     periodo = models.CharField(max_length=250)
     ano = models.IntegerField()
     docente = models.ForeignKey(Docente, on_delete=models.CASCADE)

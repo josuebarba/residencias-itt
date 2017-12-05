@@ -11,11 +11,11 @@ class MateriaInfo(models.Model):
     semestre = models.IntegerField(default=0)
     nombre = models.CharField(max_length=128)
     creditos = models.IntegerField()
-    horasPractica = models.IntegerField()
-    horasTeoria = models.IntegerField()
-    id_especialidad = models.ForeignKey(Especialidad, on_delete=models.CASCADE, default=0)
+    horas_practicas = models.IntegerField()
+    horas_teoricas = models.IntegerField()
+    especialidad = models.ForeignKey(Especialidad, on_delete=models.CASCADE, default=0)
     previous = models.IntegerField(default=0)  # guarda el id de la materia previa a esta
     next = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.nombre
+        return '%s - %s' % (self.clave, self.nombre)
