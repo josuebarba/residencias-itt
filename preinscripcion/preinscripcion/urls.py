@@ -35,11 +35,11 @@ router.register(r'count',views.CountViewSet,base_name="count")
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include(router.urls)),
-    url(r'^go/pick/$', views.pick, name='pick_view'),
-    url(r'^login/$', views.login, name='login_view'),
-    url(r'^logout/$', views.logout, name='logout_view'),
-    url(r'^go/post/$', views.materiasPost, name='post_view'),
-    url(r'', views.login, name='login_view'),
+    # url(r'^go/pick/$', views.pick, name='pick_view'),
+    # url(r'^login/$', views.login, name='login_view'),
+    # url(r'^logout/$', views.logout, name='logout_view'),
+    # url(r'^go/post/$', views.materiasPost, name='post_view'),
+    # url(r'', views.login, name='login_view'),
 
 
     # url(r'^getLogin/$',views.login,name='getlogin')
