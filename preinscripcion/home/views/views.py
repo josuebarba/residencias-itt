@@ -1,17 +1,18 @@
-# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
-from .serializer import AlumnoMateriaInfoSerializer, EspecialidadSerializer, MateriaInfoSerializer, MateriaSerializer, AlumnoSerializer, AvanceMateriaSerializer
-from .models import AlumnoMateriaInfo, Especialidad, MateriaInfo, Materia, Alumno, AvanceMateria
-from rest_framework.views import APIView
-from rest_framework.decorators import detail_route
-from rest_framework.response import Response
-from rest_framework import viewsets
-from django.shortcuts import redirect
-from django.shortcuts import render_to_response
 from django.db import connection
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse
+from django.shortcuts import redirect
+from django.shortcuts import render
+from rest_framework import viewsets
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
+from preinscripcion.home.utilities.serializers import AlumnoMateriaInfoSerializer, EspecialidadSerializer, \
+    MateriaInfoSerializer, MateriaSerializer, AlumnoSerializer, AvanceMateriaSerializer
+from preinscripcion.home.models import AlumnoMateriaInfo, Especialidad, MateriaInfo, Materia, Alumno, AvanceMateria
+
+
 # import xlrd
 # import os
 # Create your views here.
