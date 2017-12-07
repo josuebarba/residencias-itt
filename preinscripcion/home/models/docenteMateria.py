@@ -6,11 +6,10 @@ from .materia import Materia
 
 
 class DocenteMateria(models.Model):
-    periodo = models.CharField(max_length=250)
-    ano = models.IntegerField()
+    periodo = models.IntegerField()
     docente = models.ForeignKey(Docente, on_delete=models.CASCADE)
     materia = models.ForeignKey(Materia, on_delete=models.CASCADE)
 
     def __str__(self):
-        return '%s %s %s - %s (%s, %d)' % (self.docente.nombre, self.docente.apellido_paterno,
-                                           self.docente.apellido_materno, self.materia.nombre, self.periodo, self.ano)
+        return '%s %s %s - %s (%s)' % (self.docente.nombre, self.docente.apellido_paterno,
+                                       self.docente.apellido_materno, self.materia.nombre, self.periodo)

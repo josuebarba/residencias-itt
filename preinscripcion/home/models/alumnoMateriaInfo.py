@@ -3,9 +3,11 @@ from django.db import models
 
 from .alumno import Alumno
 from .materiaInfo import MateriaInfo
+from .avanceMateria import AvanceMateria
 
 
 class AlumnoMateriaInfo(models.Model):  # Las materias que tomara el alumno
+    avance = models.ForeignKey(AvanceMateria, on_delete=models.CASCADE, default=0)
     alumno = models.ForeignKey(Alumno, on_delete=models.CASCADE, default=0)
     materia_info = models.ForeignKey(MateriaInfo, on_delete=models.CASCADE, default=0)
 
