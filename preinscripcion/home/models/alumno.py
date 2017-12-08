@@ -7,9 +7,9 @@ class Alumno(models.Model):
     password = models.CharField(max_length=64, default=123)
     semestre = models.IntegerField(default=1)
     nombre = models.CharField(max_length=128)
-    ap_pat = models.CharField(max_length=128)
-    ap_mat = models.CharField(max_length=128)
+    apellido_paterno = models.CharField(max_length=128)
+    apellido_materno = models.CharField(max_length=128)
     status = models.IntegerField(default=0)
 
     def __str__(self):
-        return '%d - %s %s %s' % (self.no_control, self.nombre, self.ap_pat, self.ap_mat)
+        return '%d - %s %s %s' % (self.no_control, self.nombre, self.apellido_paterno, self.apellido_materno)

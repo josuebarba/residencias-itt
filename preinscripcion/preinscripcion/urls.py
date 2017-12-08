@@ -24,7 +24,7 @@ from django.conf import settings
 
 
 router = routers.DefaultRouter()
-router.register(r'count',views.CountViewSet,base_name="count")
+# router.register(r'count',views.CountViewSet,base_name="count")
 # router.register(r'especialidades',views.EspecialidadView,base_name="especialidades")
 # router.register(r'materiasInfo',views.MateriaInfoView,base_name="materiasInfo")
 # router.register(r'materias',views.MateriaView,base_name="materias")

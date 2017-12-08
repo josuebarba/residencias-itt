@@ -15,7 +15,6 @@ from .carrera import Carrera
 
 # Modelos Secundarios - Relaciones (1,*)
 
-from .materiaInfo import MateriaInfo
 from .avanceMateria import AvanceMateria
 from .kardex import Kardex
 from .disponibilidad import Disponibilidad
@@ -23,7 +22,7 @@ from .perfil import Perfil
 
 # Modelos Secundarios - Relaciones (*,*)
 
-from .alumnoMateriaInfo import AlumnoMateriaInfo
+from .alumnoMateria import AlumnoMateria
 from .docenteMateria import DocenteMateria
 from .materiaCarrera import MateriaCarrera
 from .materiaArea import MateriaArea

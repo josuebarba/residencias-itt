@@ -4,7 +4,7 @@ from django.db import models
 from .especialidad import Especialidad
 
 
-class MateriaInfo(models.Model):
+class Materia(models.Model):
     id_materia = models.AutoField(primary_key=True)
     # id_reticula se removio
     clave = models.CharField(max_length=128)
