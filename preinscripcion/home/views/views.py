@@ -98,42 +98,55 @@ class CountViewSet(viewsets.ModelViewSet):
         serializer = AlumnoMateriaInfoSerializer(queryset, many=True)
         return Response(serializer.data)
 
-class EspecialidadView(APIView):
+class EspecialidadView(viewsets.ModelViewSet):
+    queryset = Especialidad.objects.all()
     serializer_class = EspecialidadSerializer
 
-    def get(self,request):
-        especialidades = Especialidad.objects.all()
-        response = self.serializer_class(especialidades,many=True)
-        return Response(response.data)
-
-class MateriaInfoView(APIView):
+    def list(self,request):
+        queryset = Especialidad.Objects.all()
+        serializer = self.serializer_class(queryset,many=True)
+        return Response(serializer.data)
+    
+class MateriaInfoView(viewsets.ModelViewSet):
+    queryset = MateriaInfo.objects.all()
     serializer_class = MateriaInfoSerializer
 
-    def get(self,request):
-        materiasInfo = MateriaInfo.objects.all()
-        response = self.serializer_class(materiasInfo,many=True)
-        return Response(response.data)
-
-class MateriaView(APIView):
-    serializer_class = MateriaSerializer
-
-    def get(self,request):
-        materias = Materia.objects.all()
-        response = self.serializer_class(materias,many=True)
-        return Response(response.data)
-
-class AlumnoView(APIView):
+    def list(self,request):
+        queryset = MateriaInfo.Objects.all()
+        serializer = self.serializer_class(queryset,many=True)
+        return Response(serializer.data)
+    
+class AlumnoView(viewsets.ModelViewSet):
+    queryset = Alumno.objects.all()
     serializer_class = AlumnoSerializer
 
-    def get(self,request):
-        alumnos = Alumno.objects.all()
-        response = self.serializer_class(alumnos,many=True)
-        return Response(response.data)
+    def list(self,request):
+        queryset = Alumno.Objects.all()
+        serializer = self.serializer_class(queryset,many=True)
+        return Response(serializer.data)
 
-class AvanceMateriaView(APIView):
+class MateriaInfoView(viewsets.ModelViewSet):
+    queryset = MateriaInfo.objects.all()
+    serializer_class = MateriaInfoSerializer
+
+    def list(self,request):
+        queryset = MateriaInfo.Objects.all()
+        serializer = self.serializer_class(queryset,many=True)
+        return Response(serializer.data)
+# class MateriaView(APIView):
+#     serializer_class = MateriaSerializer
+
+#     def get(self,request):
+#         materias = Materia.objects.all()
+#         response = self.serializer_class(materias,many=True)
+#         return Response(response.data)
+class AvanceMateriaView(viewsets.ModelViewSet):
+    queryset = AvanceMateria.objects.all()
     serializer_class = AvanceMateriaSerializer
 
-    def get(self,request):
-        avance = AvanceMateria.objects.all()
-        response = self.serializer_class(avance,many=True)
-        return Response(response.data)
+    def list(self,request):
+        queryset = AvanceMateria.Objects.all()
+        serializer = self.serializer_class(queryset,many=True)
+        return Response(serializer.data)
+
+
