@@ -1,22 +1,30 @@
 from django.contrib import admin
 from django.conf.urls import include, url
 from rest_framework import routers
-from preinscripcion.home.views import views, disponibilidadView, doncenteView, materiaView, perfilView
+from preinscripcion.home import views
 
 
 router = routers.DefaultRouter()
-router.register(r'count', views.CountViewSet,base_name="count")
-router.register(r'especialidades', views.EspecialidadView,base_name="especialidades")
-router.register(r'materiasInfo', views.MateriaView,base_name="materiasInfo")
-router.register(r'materias', views.MateriaView,base_name="materias")
-router.register(r'alumnos', views.AlumnoView,base_name="alumnos")
-router.register(r'avance', views.AvanceMateriaView,base_name="avance")
-router.register(r'especialidades', views.EspecialidadView,base_name="especialidadview")
 
-router.register(r'materias', materiaView.MateriaViewSet)
-router.register(r'docentes', doncenteView.DocenteViewSet)
-router.register(r'disponibilidad', disponibilidadView.DisponibilidadViewSet)
-router.register(r'perfiles', perfilView.PerfilViewSet)
+# Catalogos
+
+router.register(r'areas', views.AreaViewSet)
+router.register(r'evidencias', views.EvidenciaViewSet)
+router.register(r'especialidades', views.EspecialidadViewSet)
+
+# Modelos Principales
+
+router.register(r'alumnos', views.AlumnoViewSet)
+router.register(r'docentes', views.DocenteViewSet)
+router.register(r'materias', views.MateriaViewSet)
+router.register(r'carreras', views.CarreraViewSet)
+
+# Modelos Secundarios - Relaciones (1,*)
+
+router.register(r'avances', views.AvanceMateriaViewSet)
+router.register(r'disponibilidad', views.DisponibilidadViewSet)
+router.register(r'perfiles', views.PerfilViewSet)
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
