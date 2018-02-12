@@ -154,13 +154,13 @@ class AlumnoView(viewsets.ModelViewSet):
         serializer = self.serializer_class(queryset,many=True)
         return Response(serializer.data)
 
-# class MateriaInfoView(viewsets.ModelViewSet):
+# class
 #     queryset = MateriaInfo.objects.all()
 #     serializer_class = MateriaInfoSerializer
 #
 #     def list(self,request):
 #         queryset = MateriaInfo.Objects.all()
-#         serializer = self.serializer_class(queryset,many=True)
+#         serializer = self.serializer_class(queryse MateriaInfoView(viewsets.ModelViewSet):t,many=True)
 #         return Response(serializer.data)
 # class MateriaView(APIView):
 #     serializer_class = MateriaSerializer

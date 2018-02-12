@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from home.models import *
+from preinscripcion.home.models import *
 
 
 class AlumnoSerializer(serializers.ModelSerializer):
