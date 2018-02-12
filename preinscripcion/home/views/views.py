@@ -20,7 +20,7 @@ import pandas as pd
 # request.session['no_control'] = 0;
 # request.session['password'] = 'none';
 
-def ReadXls(request):
+def ReadXls(request): # Recorre el archivo Excel que contiene todos los alumnos y los guarda en la base de datos.
     # file_loc = "ISC.xls"
     # df = pd.read_excel(file_loc, index_col = 0, na_values=['NA'], usecols = "A,C:AA")
     # # xlsx = pd.ExcelFile("ISC.xls")
@@ -35,7 +35,7 @@ def ReadXls(request):
         p.save()
     return HttpResponse('200')
 
-def addMaterias(requiest):
+def addMaterias(requiest): #Recorre el archivo que contiene todas las materias y los guarda en la base de datos.
     xls = pd.ExcelFile("ISC2.xls")
     df= xls.parse("Sheet2")
 
@@ -44,7 +44,7 @@ def addMaterias(requiest):
         p.save()
     return HttpResponse('200')
 
-def getCount(request):
+def getCount(request): #Obtiene todas las materias que han sido solicitadas y la cantidad de solicitudes que tiene cada una, lo despliega en la vista html "series"
     lista = AlumnoMateria.objects.raw("Select home_alumnomateria.id as id, home_materia.nombre as nombre,  home_materia.clave,  home_materia.semestre, count(home_alumnomateria.materia_id) as cuenta from home_materia, home_alumnomateria where home_materia.id_materia = home_alumnomateria.materia_id group by home_alumnomateria.materia_id order by home_materia.semestre")
 
     context = {
@@ -54,7 +54,7 @@ def getCount(request):
     return render(request,'series.html',context)
 
 
-def materiasPost(request):
+def materiasPost(request): #Inserta en la tabla relacional los registros correspondietes, siendo las materias solicitadas por los alumnos, en la tabla home_alumnomateria
     row =''
     b=0
     if request.method == "POST":
@@ -77,9 +77,9 @@ def materiasPost(request):
 
     # return render(request,"pick.html",{"rows":row})
 
-def login(request):
+def login(request): #Se realiza el login a la plataforma, se valida que la password sea la misma que la obtenida en la consulta
     if request.method == "POST":
-        m = Alumno.objects.get(no_control=request.POST['no_control'])
+        m = Alumno.objects.get(no_control=request.POST['no_control']) #Consulta la informacion del usuario ingresado
         if m.password == request.POST['password']:
             request.session['no_control'] = m.no_control
             request.session['semestre'] = m.semestre
@@ -95,11 +95,11 @@ def login(request):
         return render(request,"login.html")
 
 
-def logout(request):
+def logout(request): # Elimina los datos de la sesion para salir de la misma.
     request.session['no_control'] = 0
     return render(request,"login.html")
 
-def pick(request):
+def pick(request): #Muestra las materias para elegir el semestre correspondiente si aun no se han elegido, de lo contrario muestra las que se eligieron.
     flag=False;
     if(request.session['status']==0):           #Se muestran materias para elegir
         listaPre = Materia.objects.all()
@@ -117,7 +117,7 @@ def pick(request):
     }
     return render(request,'pick.html',context)
 
-class CountViewSet(viewsets.ModelViewSet):
+class CountViewSet(viewsets.ModelViewSet): #Se obtiene la cantidad de solicitudes que tiene cada materia.
     queryset = AlumnoMateria.objects.raw('Select home_materia.id_materia, home_materia.nombre, count(home_alumnomateria.materia_id) as materia_count from home_materia, home_alumnomateria where home_materia.id_materia = home_alumnomateria.materia_id group by home_alumnomateria.materia_id')
     serializer_class = AlumnoMateriaInfoSerializer
 
@@ -127,7 +127,7 @@ class CountViewSet(viewsets.ModelViewSet):
         serializer = AlumnoMateriaInfoSerializer(queryset, many=True)
         return Response(serializer.data)
 
-class EspecialidadView(viewsets.ModelViewSet):
+class EspecialidadView(viewsets.ModelViewSet): #Retorna las Especialidades existentes
     queryset = Especialidad.objects.all()
     serializer_class = EspecialidadSerializer
 
@@ -136,7 +136,7 @@ class EspecialidadView(viewsets.ModelViewSet):
         serializer = self.serializer_class(queryset,many=True)
         return Response(serializer.data)
 
-class MateriaView(viewsets.ModelViewSet):
+class MateriaView(viewsets.ModelViewSet): #Retorna las Materias existentes
     queryset = Materia.objects.all()
     serializer_class = MateriaSerializer
 
@@ -145,7 +145,7 @@ class MateriaView(viewsets.ModelViewSet):
         serializer = self.serializer_class(queryset,many=True)
         return Response(serializer.data)
 
-class AlumnoView(viewsets.ModelViewSet):
+class AlumnoView(viewsets.ModelViewSet): #Retorna los Alumnos existentes
     queryset = Alumno.objects.all()
     serializer_class = AlumnoSerializer
 
@@ -169,8 +169,7 @@ class AlumnoView(viewsets.ModelViewSet):
 #         materias = Materia.objects.all()
 #         response = self.serializer_class(materias,many=True)
 #         return Response(response.data)
-class AvanceMateriaView(viewsets.ModelViewSet):
-    queryset = AvanceMateria.objects.all()
+class AvanceMateriaView(viewsets.ModelViewSet): #Retorna el avance de los alumnos. De la tabla que guarda la relacion entre materias y alumnos.    queryset = AvanceMateria.objects.all()
     serializer_class = AvanceMateriaSerializer
 
     def list(self,request):
