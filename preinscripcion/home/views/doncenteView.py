@@ -15,7 +15,7 @@ class DocenteViewSet(viewsets.ModelViewSet):
     # Parametros:
     #   pk  => ID de materia
     # URL: http://[IP|DOMINIO]:[PUERTO]/api/docentes/obtener_por_materia/[pk]
-    @list_route(methods=['get'])
+    @list_route(methods=['get'], url_path='obtener_por_materia/(?P<pk>[^/.]+)')
     def obtener_por_materia(self, request, pk=None):
         materia = Materia.objects.get(id_materia=pk)
         docentes = DocenteMateria.objects.filter(materia=materia).values('docente')
@@ -27,7 +27,7 @@ class DocenteViewSet(viewsets.ModelViewSet):
     # Parametros:
     #   pk  => ID de periodo
     # Url: http://[IP|DOMINIO]:[PUERTO]/api/docentes/obtener_por_periodo/[pk]
-    @list_route(methods=['get'])
+    @list_route(methods=['get'], url_path='obtener_por_periodo/(?P<pk>[^/.]+)')
     def obtener_por_periodo(self, request, pk=None):
         docentes = DocenteMateria.objects.filter(periodo=pk).values('docente')
         serialier = self.serializer_class(docentes, many=True)

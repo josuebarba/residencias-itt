@@ -16,7 +16,7 @@ class MateriaViewSet(viewsets.ModelViewSet):
     #   id_docente  => ID de docente
     #   periodos    => Arreglo con los valores de los periodos
     # URL: http://[IP|DOMINIO]:[PUERTO]/api/materias/obtener_por_periodos/
-    @list_route(methods=['post'])
+    @list_route(methods=['post'], url_path='obtener_por_periodos')
     def obtener_por_periodos(self, request):
         docente = Docente.objects.filter(id_docente=request.id_docente)
         materias = DocenteMateria.objects.filter(docente=docente).filter(periodo__in=request.periodos)
@@ -29,7 +29,7 @@ class MateriaViewSet(viewsets.ModelViewSet):
     # Parametros:
     #   pk  => ID de docente
     # URL: http://[IP|DOMINIO]:[PUERTO]/api/materias/obtener_permitidas_por_docente/[pk]
-    @list_route(methods=['get'])
+    @list_route(methods=['get'], url_path='obtener_permitidas_por_docente/(?P<pk>[^/.]+)')
     def obtener_permitidas_por_docente(self, request, pk=None):
         areas = Perfil.objects.filter(docente__id_docente=pk).values('area')
         ids = areas.values_list('id_area')
@@ -45,7 +45,7 @@ class MateriaViewSet(viewsets.ModelViewSet):
     #   semestre        => Semestre actual del alumno
     #   status          => Estado del alumno (0 si no ha elegido | 1 si ya las eligio)
     # URL: http://[IP|DOMINIO]:[PUERTO]/api/materias/obtener_permitidas_para_seleccion_alumno/
-    @list_route(methods=['post'])
+    @list_route(methods=['post'], url_path='obtener_permitidas_para_seleccion_alumno')
     def obtener_permitidas_para_seleccion_alumno(self, request):
         if request.session['status']==0: # Se muestran materias para elegir
             materias = self.queryset.filter(semestre=request.semestre+1)

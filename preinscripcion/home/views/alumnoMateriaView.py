@@ -18,6 +18,7 @@ class AlumnoMateriaViewSet(viewsets.ModelViewSet):
     # Parametros:
     #   ?
     # URL: http://[IP|DOMINIO]:[PUERTO]/api/materias/insertar_multiples_registros/
+    @list_route(methods=['post'], url_path='insertar_multiples_registros')
     def insertar_multiples_registros(self, request):
         row = ''
         b = 0
@@ -44,7 +45,7 @@ class AlumnoMateriaViewSet(viewsets.ModelViewSet):
     # Parametros:
     #   ?
     # URL: http://[IP|DOMINIO]:[PUERTO]/api/materias/obtener_cantidad_solicitudes/
-    @list_route(methods=['post'])
+    @list_route(methods=['post'], url_path='obtener_cantidad_solicitudes')
     def obtener_cantidad_solicitudes(self, request):
         queryset = AlumnoMateria.objects.raw('Select home_alumnomateria.id as id, home_materia.nombre as nombre, count(home_alumnomateria.materia_id) as cuenta from home_materia, home_alumnomateria where home_materia.id_materia = home_alumnomateria.materia_id group by home_alumnomateria.materia_id')
         serializer = AlumnoMateriaInfoSerializer(queryset, many=True)

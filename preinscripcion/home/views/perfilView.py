@@ -15,7 +15,7 @@ class PerfilViewSet(viewsets.ModelViewSet):
     # Parametros:
     #   pk  => ID de docente
     # URL: http://[IP|DOMINIO]:[PUERTO]/api/perfiles/obtener_por_docente/[pk]
-    @list_route(methods=['get'])
+    @list_route(methods=['get'], url_path='obtener_por_docente/(?P<pk>[^/.]+)')
     def obtener_por_docente(self, request, pk=None):
         perfiles = self.queryset.filter(docente__id_docente=pk)
         serializer = self.serializer_class(perfiles, many=True)
@@ -26,7 +26,7 @@ class PerfilViewSet(viewsets.ModelViewSet):
     # Parametros:
     #   pk  => ID de area
     # URL: http://[IP|DOMINIO]:[PUERTO]/api/perfiles/obtener_por_area/[pk]
-    @list_route(methods=['get'])
+    @list_route(methods=['get'], url_path='obtener_por_area/(?P<pk>[^/.]+)')
     def obtener_por_area(self, request, pk=None):
         perfiles = self.queryset.filter(area__id_area=pk)
         serializer = self.serializer_class(perfiles, many=True)
