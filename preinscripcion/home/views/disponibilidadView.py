@@ -2,8 +2,8 @@ from rest_framework import viewsets
 from rest_framework.decorators import list_route
 from rest_framework.response import Response
 
-from preinscripcion.home.models import Disponibilidad
-from preinscripcion.home.utilities.serializers import DisponibilidadSerializer
+from home.models import Disponibilidad
+from home.utilities.serializers import DisponibilidadSerializer
 
 
 class DisponibilidadViewSet(viewsets.ModelViewSet):

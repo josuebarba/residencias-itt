@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 
-from preinscripcion.home.models import Carrera
-from preinscripcion.home.utilities.serializers import CarreraSerializer
+from home.models import Carrera
+from home.utilities.serializers import CarreraSerializer
 
 
 class CarreraViewSet(viewsets.ModelViewSet):

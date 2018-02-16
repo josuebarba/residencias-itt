@@ -4,8 +4,8 @@ from rest_framework import viewsets
 from rest_framework.decorators import list_route
 from rest_framework.response import Response
 
-from preinscripcion.home.models import AlumnoMateria
-from preinscripcion.home.utilities.serializers import AlumnoMateriaInfoSerializer
+from home.models import AlumnoMateria
+from home.utilities.serializers import AlumnoMateriaInfoSerializer
 
 
 class AlumnoMateriaViewSet(viewsets.ModelViewSet):

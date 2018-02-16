@@ -2,8 +2,8 @@ from rest_framework import viewsets
 from rest_framework.decorators import list_route
 from rest_framework.response import Response
 
-from preinscripcion.home.models import Materia, Docente, DocenteMateria, Perfil, MateriaArea, AlumnoMateria
-from preinscripcion.home.utilities.serializers import MateriaSerializer
+from home.models import Materia, Docente, DocenteMateria, Perfil, MateriaArea, AlumnoMateria
+from home.utilities.serializers import MateriaSerializer
 
 
 class MateriaViewSet(viewsets.ModelViewSet):

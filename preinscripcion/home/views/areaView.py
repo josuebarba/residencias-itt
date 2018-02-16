@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 
-from preinscripcion.home.models import Area
-from preinscripcion.home.utilities.serializers import AreaSerializer
+from home.models import Area
+from home.utilities.serializers import AreaSerializer
 
 
 class AreaViewSet(viewsets.ModelViewSet):

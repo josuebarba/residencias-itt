@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 
-from preinscripcion.home.models import AvanceMateria
-from preinscripcion.home.utilities.serializers import AvanceMateriaSerializer
+from home.models import AvanceMateria
+from home.utilities.serializers import AvanceMateriaSerializer
 
 
 class AvanceMateriaViewSet(viewsets.ModelViewSet):
