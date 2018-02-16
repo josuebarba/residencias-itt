@@ -25,6 +25,10 @@ router.register(r'avances', views.AvanceMateriaViewSet)
 router.register(r'disponibilidad', views.DisponibilidadViewSet)
 router.register(r'perfiles', views.PerfilViewSet)
 
+# Modelos Secundarios - Relaciones (*,*)
+
+router.register(r'alumnos/materias', views.AlumnoMateriaViewSet)
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),

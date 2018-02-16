@@ -18,3 +18,7 @@ from .carreraView import CarreraViewSet
 from .avanceMateriaView import AvanceMateriaViewSet
 from .disponibilidadView import DisponibilidadViewSet
 from .perfilView import PerfilViewSet
+
+# Modelos Secundarios - Relaciones (*,*)
+
+from .alumnoMateriaView import AlumnoMateriaViewSet

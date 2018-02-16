@@ -2,7 +2,7 @@ from rest_framework import viewsets
 from rest_framework.decorators import list_route
 from rest_framework.response import Response
 
-from preinscripcion.home.models import Materia, Docente, DocenteMateria, Perfil, MateriaArea
+from preinscripcion.home.models import Materia, Docente, DocenteMateria, Perfil, MateriaArea, AlumnoMateria
 from preinscripcion.home.utilities.serializers import MateriaSerializer
 
 
@@ -34,5 +34,23 @@ class MateriaViewSet(viewsets.ModelViewSet):
         areas = Perfil.objects.filter(docente__id_docente=pk).values('area')
         ids = areas.values_list('id_area')
         materias = MateriaArea.objects.filter(area__id_area__in=ids)
+        serializer = self.serializer_class(materias, many=True)
+        return Response(serializer.data)
+
+    # Descripcion: Muestra las materias para elegir el semestre correspondiente si aun no se han elegido, de lo
+    # contrario muestra las que se eligieron.
+    # Metodos: POST
+    # Parametros:
+    #   id de alumno    => ID de alumno
+    #   semestre        => Semestre actual del alumno
+    #   status          => Estado del alumno (0 si no ha elegido | 1 si ya las eligio)
+    # URL: http://[IP|DOMINIO]:[PUERTO]/api/materias/obtener_permitidas_para_seleccion_alumno/
+    @list_route(methods=['post'])
+    def obtener_permitidas_para_seleccion_alumno(self, request):
+        if request.session['status']==0: # Se muestran materias para elegir
+            materias = self.queryset.filter(semestre=request.semestre+1)
+        else: # Se muestran materias elegidas
+            materias = AlumnoMateria.objects.raw("select home_alumnomateria.id, home_alumnomateria.materia_id,home_materia.nombre, home_materia.semestre, home_materia.creditos, home_materia.horas_teoricas, home_materia.horas_practicas from home_materia,home_alumnomateria where home_alumnomateria.alumno_id ="+ str(request.session['no_control']) +" and home_materia.id_materia = home_alumnomateria.materia_id")
+
         serializer = self.serializer_class(materias, many=True)
         return Response(serializer.data)
